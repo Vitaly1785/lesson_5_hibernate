@@ -10,8 +10,13 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class ProductDao {
-    EntityManagerFactory factory = new Configuration().configure("hibernate.xml").buildSessionFactory();
-    EntityManager em = factory.createEntityManager();
+    EntityManagerFactory factory;
+    EntityManager em;
+
+    public ProductDao() {
+        this.factory = new Configuration().configure("hibernate.xml").buildSessionFactory();
+        this.em = factory.createEntityManager();
+    }
 
     public Product findById(Long id){
 
